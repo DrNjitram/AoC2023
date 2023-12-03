@@ -20,5 +20,3 @@ for i, line in enumerate(lines):
 
 print(sum_id)
 print(power_sum)
-
-
