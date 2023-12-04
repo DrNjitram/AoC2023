@@ -1,7 +1,10 @@
 import re
 import math
+import time
 
-field = [line.strip() for line in open("input/d3")]
+start_time = time.time()
+field = [line.strip() for line in open("input/day3_big.txt")]
+
 
 numbers = []
 gears = []
@@ -9,6 +12,7 @@ all_parts = {}
 
 id = 0
 for y, line in enumerate(field):
+    print(line)
     part_result = re.findall(r"\d*", line)
     for x, val in enumerate(part_result):
         if val != '':
@@ -50,3 +54,4 @@ for y, line in enumerate(field):
                 ratios += parts[0]*parts[1]
 
 print(ratios)
+print(time.time()-start_time)
