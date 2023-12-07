@@ -1,5 +1,7 @@
 import numpy as np
+import time
 
+start_time = time.time()
 blocks = open("input/d5").read().split("\n\n")
 seeds = [int(v) for v in blocks[0].split(": ")[1].split(" ")]
 
@@ -17,7 +19,7 @@ def apply_map_part1(seeds, ranges):
     return output
 
 
-def apply_map_part2(seeds, ranges):
+def apply_map_part2(seeds: iter, ranges: iter):
     output = []
 
     i = 0
@@ -57,3 +59,4 @@ seeds2 = [[seeds[i], seeds[i+1]] for i in range(0, len(seeds), 2)]
 for m in maps:
     seeds2 = apply_map_part2(seeds2, m)
 print("Part 2", min([s for s, r in seeds2]))
+print(round((time.time()-start_time)*1000, 2), "ms")
